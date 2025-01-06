@@ -33,7 +33,7 @@ export class LoginComponent {
     // console.log(this.loginObj);
     
     this.http.post('https://projectapi.gerasim.in/api/UserApp/login', this.apiLoginObj).subscribe((response: any) => {
-      localStorage.setItem('Angular19user', response.data.userId);
+      localStorage.setItem('Angular19user', response.data.token);
       this.router.navigate(['/home'])
     },Error => {
       alert("We are not allowed to login");
