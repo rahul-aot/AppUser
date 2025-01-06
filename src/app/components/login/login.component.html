@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div class="login">
+    <div class="form">
+      <p>welcome</p>
+      <form class="login-form">
+        <input type="text" name="EmailId" [(ngModel)]="apiLoginObj.EmailId" placeholder="email" required  required/>
+        <input type="password" name="Password" [(ngModel)]="apiLoginObj.Password" placeholder="password" required />
+        <button (click)="onSubmit()">login</button>
+      </form>  
+    </div>
+  </div>
