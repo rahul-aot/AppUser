@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeComponent } from './components/home/home.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     {
@@ -16,10 +17,12 @@ export const routes: Routes = [
     {
         path:'',
         component: LayoutComponent,
+        canActivate:[authGuard],
         children:[
             {
                 path: 'home',
-                component: HomeComponent
+                component: HomeComponent,
+                // canActivate:[authGuard]
             }
         ]
     }
