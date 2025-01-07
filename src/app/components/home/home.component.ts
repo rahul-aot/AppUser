@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,15 @@ import { Component, inject, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
  
   http = inject(HttpClient)
+  userService = inject(UserService)
 
+  constructor() {
+    this.userService.tokenRecived$.subscribe((res: boolean) => {
+      if(res) {
+        this.getUsers();
+      }
+    })
+   }
 
   ngOnInit(): void {
     this.getUsers();
