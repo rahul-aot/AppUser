@@ -28,7 +28,7 @@ export class LayoutComponent {
           "refreshToken": loggedData.refreshToken,
         }
         debugger
-        this.http.post('https://projectapi.gerasim.in/api/UserApp/login',obj).subscribe((response: any) => {
+        this.http.post('https://projectapi.gerasim.in/api/UserApp/refresh',obj).subscribe((response: any) => {
           localStorage.setItem('Angular19user',JSON.stringify(response.data));
           localStorage.setItem('angular19token',response.data.token);
           this.userService.tokenRecived$.next(true);
